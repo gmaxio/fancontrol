@@ -1,0 +1,33 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  static-checks:
+    runs-on: macos-14
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check source syntax and data files
+        run: |
+          set -euo pipefail
+          MODULE_CACHE="$RUNNER_TEMP/fancontrol-swift-module-cache"
+          mkdir -p "$MODULE_CACHE"
+          export CLANG_MODULE_CACHE_PATH="$MODULE_CACHE"
+          export SWIFT_MODULECACHE_PATH="$MODULE_CACHE"
+          /usr/bin/python3 -m py_compile fancontrol.py
+          /usr/bin/python3 -m json.tool DefaultPresets.json >/dev/null
+          /usr/bin/clang -fsyntax-only -Wall -Wextra smc.c
+          /usr/bin/swiftc -typecheck FanControl.swift SettingsView.swift -framework Cocoa -framework SwiftUI
+      - name: Reject common credential patterns
+        run: |
+          set -euo pipefail
+          if git grep -n -I -E '(ghp_[A-Za-z0-9]{20,}|github_pat_[A-Za-z0-9_]{20,}|sk-[A-Za-z0-9]{20,}|AKIA[0-9A-Z]{16})' -- .; then
+            echo "Potential credential pattern found. Remove it before publishing."
+            exit 1
+          fi

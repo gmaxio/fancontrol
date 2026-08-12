@@ -1,0 +1,19 @@
+# FanControl notices
+
+`smc.c` is derived from the `smc-command` component of
+[smcFanControl](https://github.com/hholtmann/smcFanControl), and is therefore
+distributed under the GNU General Public License, version 2 or any later
+version (GPL-2.0-or-later).
+
+Original notices for that component:
+
+    Apple System Management Control Tool
+    Copyright (C) 2006 devnull
+    Portions Copyright (C) 2013 Michael Wilber
+
+gmaxio adapted the component for this project, including
+the restricted fan-control write surface and current macOS command values.
+
+The project documentation also cites
+[Stats](https://github.com/exelban/stats) as a research reference for modern
+macOS SMC behaviour. No Stats source files are distributed in this repository.

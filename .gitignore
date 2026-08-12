@@ -1,0 +1,28 @@
+# macOS 系统垃圾文件
+.DS_Store
+**/.DS_Store
+
+# QuickLook 调试日志
+ql.log
+
+# 编辑器 / 系统缓存
+*.swp
+~$*
+
+# 本机构建缓存
+.build/
+.build-cache/
+.swift-module-cache/
+__pycache__/
+
+# Generated release artifacts: publish these through GitHub Releases, not Git.
+FanControl.app/
+FanControl.app.zip
+fancontrol-dist/
+fancontrol-dist.zip
+smc
+
+# Local FanControl runtime state and diagnostics
+.fancontrol/
+.config/fancontrol/
+*.log

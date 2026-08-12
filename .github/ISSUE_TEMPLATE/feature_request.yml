@@ -1,0 +1,24 @@
+name: Feature request
+description: Propose an improvement with its safety impact.
+title: "feature: "
+labels: [enhancement]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem to solve
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed behaviour
+    validations:
+      required: true
+  - type: textarea
+    id: safety
+    attributes:
+      label: Safety or privilege impact
+      description: Explain whether this changes SMC writes, installation, or restore-auto behaviour.
+    validations:
+      required: true

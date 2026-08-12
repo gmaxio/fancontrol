@@ -1,0 +1,51 @@
+name: Bug report
+description: Report a reproducible FanControl problem without sensitive data.
+title: "bug: "
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Do not include serial numbers, passwords, API keys, or unrelated full logs.
+        For a security issue, use the private reporting process in SECURITY.md.
+  - type: input
+    id: version
+    attributes:
+      label: FanControl version or commit
+    validations:
+      required: true
+  - type: input
+    id: mac
+    attributes:
+      label: Mac model and chip
+      placeholder: "Example: MacBookPro15,1 (T2)"
+    validations:
+      required: true
+  - type: input
+    id: macos
+    attributes:
+      label: macOS version
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Steps to reproduce
+      placeholder: "What did you do, and what happened?"
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behaviour
+    validations:
+      required: true
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Safety checks
+      options:
+        - label: I am not running another fan-control utility.
+          required: true
+        - label: I tried or considered `fancontrol auto` before reporting a control failure.
+          required: true

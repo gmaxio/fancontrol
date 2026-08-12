@@ -1,0 +1,37 @@
+name: Hardware compatibility report
+description: Share a successful or failed test on a Mac model.
+title: "hardware: "
+labels: [hardware-compatibility]
+body:
+  - type: input
+    id: mac
+    attributes:
+      label: Mac model and chip
+    validations:
+      required: true
+  - type: input
+    id: macos
+    attributes:
+      label: macOS version
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: FanControl version or commit
+    validations:
+      required: true
+  - type: checkboxes
+    id: outcomes
+    attributes:
+      label: Outcomes
+      options:
+        - label: Fan RPM values were readable.
+        - label: A bounded manual target was accepted and behaved as expected.
+        - label: Automatic control was restored successfully.
+        - label: A preset worked as expected.
+  - type: textarea
+    id: notes
+    attributes:
+      label: Notes
+      description: Do not include a serial number or unrelated personal logs.
