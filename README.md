@@ -24,6 +24,26 @@ before opening them.
 Please read [Safety](docs/SAFETY.md) before controlling a fan. We especially
 need hardware reports from M1, M2, M4, and M5 Mac owners.
 
+## Screenshots
+
+These maintainer-provided screenshots show the menu-bar workflow and the
+application bundle as used on a Mac with physical fans. The exact labels,
+RPM values, temperatures, and layout can vary by build and hardware.
+
+![FanControl menu-bar controls](assets/screenshots/fancontrol-menu-bar.png)
+
+*Menu-bar controls showing CPU temperature, two fan readings, manual mode,
+presets, fan settings, thermal control, and start-at-login.*
+
+![FanControl app bundle](assets/screenshots/fancontrol-app-launcher.png)
+
+*FanControl.app opened from Finder. FanControl is designed to run as a
+menu-bar utility rather than a traditional main-window application.*
+
+> The first screenshot displays `FanControl v1.4.3` and is included as a UI
+> reference. It does not establish compatibility for every Mac model or
+> indicate the version number of the current public preview release.
+
 ## What it does
 
 - Native menu-bar controls for temperature, RPM, presets, and start-at-login.

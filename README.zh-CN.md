@@ -14,6 +14,20 @@ FanControl 是主打 Apple Silicon Mac 的实验性开源项目。它可以读�
 
 在实际调速前，请阅读[安全说明](docs/SAFETY.md)。目前尤其需要 M1、M2、M4、M5 机型的兼容性反馈。
 
+## 使用界面
+
+以下截图由维护者提供，展示了在带实体风扇的 Mac 上使用 FanControl 的菜单栏流程和应用包。具体文字、RPM、温度与布局会因构建版本和硬件而变化。
+
+![FanControl 菜单栏控制面板](assets/screenshots/fancontrol-menu-bar.png)
+
+*菜单栏面板显示 CPU 温度、两个风扇读数、手动模式、预设、风扇设置、温控和登录启动。*
+
+![FanControl 应用包](assets/screenshots/fancontrol-app-launcher.png)
+
+*在 Finder 中打开 FanControl.app。FanControl 设计为菜单栏工具，不依赖传统的主窗口。*
+
+> 第一张截图中的界面版本显示为 `FanControl v1.4.3`，这里仅用于展示 UI，不代表所有 Mac 机型都兼容，也不代表当前公开预览版的版本号。
+
 ## 能做什么
 
 - 原生菜单栏查看温度、RPM、预设和登录启动状态。
