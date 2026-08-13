@@ -21,8 +21,9 @@ includes optional learning/test downloads. They may trigger a Gatekeeper
 warning; read the [preview download guide](docs/DISTRIBUTION.md#using-the-preview-downloads)
 before opening them.
 
-Please read [Safety](docs/SAFETY.md) before controlling a fan. We especially
-need hardware reports from M1, M2, M4, and M5 Mac owners.
+Please read [Safety](docs/SAFETY.md) before controlling a fan. A MacBook Pro
+14-inch (2021) with an M1 Pro is now maintainer-verified; we still need reports
+from other M1, M2, M4, and M5 Mac owners.
 
 ## Screenshots
 
@@ -39,6 +40,11 @@ presets, fan settings, thermal control, and start-at-login.*
 
 *FanControl.app opened from Finder. FanControl is designed to run as a
 menu-bar utility rather than a traditional main-window application.*
+
+![Redacted M1 Pro test machine information](assets/screenshots/m1-pro-about-redacted.png)
+
+*Redacted test-machine information: MacBook Pro 14-inch (2021), Apple M1 Pro,
+16 GB, macOS Tahoe 26.5.2. The serial number is intentionally not published.*
 
 > The first screenshot displays `FanControl v1.4.3` and is included as a UI
 > reference. It does not establish compatibility for every Mac model or
@@ -65,7 +71,9 @@ not a promise that every Mac exposes compatible SMC keys.
 | --- | --- | --- |
 | Mac15,6 (M3 Pro) | 27.0 | Dual-fan read, presets, restore-auto |
 | MacBookPro15,1 (T2) | 15.7 | Read, manual control, restore-auto |
-| M1 / M2 / M4 / M5 | — | Not yet verified |
+| MacBook Pro 14-inch (2021, M1 Pro) | Tahoe 26.5.2 | Dual-fan read, manual control, presets, restore-auto |
+| Other M1 Macs | — | Not yet verified |
+| M2 / M4 / M5 Macs | — | Not yet verified |
 
 See the full [compatibility policy](docs/COMPATIBILITY.md) and use the
 hardware issue template to add a result.

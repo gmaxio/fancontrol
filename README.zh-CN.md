@@ -12,7 +12,9 @@ FanControl 是主打 Apple Silicon Mac 的实验性开源项目。它可以读�
 
 [v0.1.0-preview Release](https://github.com/gmaxio/fancontrol/releases/tag/v0.1.0-preview) 提供可选的学习/测试安装包。首次打开可能会触发 Gatekeeper 提示；请先阅读[预览包下载说明](docs/DISTRIBUTION.md#using-the-preview-downloads)。
 
-在实际调速前，请阅读[安全说明](docs/SAFETY.md)。目前尤其需要 M1、M2、M4、M5 机型的兼容性反馈。
+在实际调速前，请阅读[安全说明](docs/SAFETY.md)。维护者已在一台 2021 年
+14 英寸 M1 Pro MacBook Pro 上完成验证；目前仍需要其他 M1、M2、M4、M5
+机型的兼容性反馈。
 
 ## 使用界面
 
@@ -25,6 +27,11 @@ FanControl 是主打 Apple Silicon Mac 的实验性开源项目。它可以读�
 ![FanControl 应用包](assets/screenshots/fancontrol-app-launcher.png)
 
 *在 Finder 中打开 FanControl.app。FanControl 设计为菜单栏工具，不依赖传统的主窗口。*
+
+![已脱敏的 M1 Pro 测试机器信息](assets/screenshots/m1-pro-about-redacted.png)
+
+*已脱敏的测试机器信息：2021 年 14 英寸 MacBook Pro、Apple M1 Pro、16 GB、
+macOS Tahoe 26.5.2。序列号不会公开。*
 
 > 第一张截图中的界面版本显示为 `FanControl v1.4.3`，这里仅用于展示 UI，不代表所有 Mac 机型都兼容，也不代表当前公开预览版的版本号。
 
@@ -43,9 +50,13 @@ FanControl 是主打 Apple Silicon Mac 的实验性开源项目。它可以读�
 | --- | --- | --- |
 | Mac15,6（M3 Pro） | 27.0 | 双风扇读取、预设、恢复自动 |
 | MacBookPro15,1（T2） | 15.7 | 可读取、手动控制、恢复自动 |
-| M1 / M2 / M4 / M5 | — | 尚未验证 |
+| 14 英寸 MacBook Pro（2021，M1 Pro） | Tahoe 26.5.2 | 双风扇读取、手动控制、预设、恢复自动 |
+| 其他 M1 Mac | — | 尚未验证 |
+| M2 / M4 / M5 Mac | — | 尚未验证 |
 
-Apple Silicon 是主要目标；项目同时保留已验证的 Intel/T2 兼容路径。「通用二进制」只说明代码可为 x86_64 与 arm64 编译，不代表所有机型都具有相同的 SMC 键。详细边界见[兼容性说明](docs/COMPATIBILITY.md)。
+Apple Silicon 是主要目标；项目同时保留已验证的 Intel/T2 兼容路径。这里的
+M1 Pro 结果只覆盖上述这台具体机器，不代表所有 M1 机型。「通用二进制」只说明代码可为
+x86_64 与 arm64 编译，不代表所有机型都具有相同的 SMC 键。详细边界见[兼容性说明](docs/COMPATIBILITY.md)。
 
 ## 从源码构建
 

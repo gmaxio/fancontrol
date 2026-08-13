@@ -2,6 +2,14 @@
 
 All notable public changes will be documented here.
 
+## Unreleased
+
+- Added maintainer-reported validation for a 14-inch 2021 MacBook Pro with an
+  Apple M1 Pro on macOS Tahoe 26.5.2, including dual-fan read, manual control,
+  preset control, and restore-to-auto.
+- Added a redacted hardware-information screenshot; serial numbers are not
+  published.
+
 ## [0.1.0-preview] - 2026-08-13
 
 Initial public-source preview maintained by gmaxio.
