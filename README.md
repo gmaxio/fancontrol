@@ -16,6 +16,11 @@ after an explicit administrator authorization, apply manual or temperature-based
 fan targets through a deliberately restricted helper. The project is not an
 Apple product, and its releases are currently **ad-hoc signed, not notarized**.
 
+The [v0.1.0-preview release](https://github.com/gmaxio/fancontrol/releases/tag/v0.1.0-preview)
+includes optional learning/test downloads. They may trigger a Gatekeeper
+warning; read the [preview download guide](docs/DISTRIBUTION.md#using-the-preview-downloads)
+before opening them.
+
 Please read [Safety](docs/SAFETY.md) before controlling a fan. We especially
 need hardware reports from M1, M2, M4, and M5 Mac owners.
 
@@ -70,6 +75,18 @@ Do not bypass macOS security checks with blanket quarantine-removal commands.
 Build from source if you want to inspect the exact helper being installed. The
 planned signed/notarized release workflow is documented in
 [docs/DISTRIBUTION.md](docs/DISTRIBUTION.md).
+
+## Preview downloads
+
+The preview Release contains two optional archives:
+
+- `FanControl.app.zip`: the menu-bar app and its read-only bundled SMC tool.
+- `fancontrol-dist.zip`: the app plus CLI, install script, and uninstall script.
+
+These are for learning and testing. They are ad-hoc signed and not notarized;
+the full distribution also installs a privileged helper only after an explicit
+administrator prompt. Verify the release checksum and follow the per-app
+Gatekeeper steps in [docs/DISTRIBUTION.md](docs/DISTRIBUTION.md) before use.
 
 ## Everyday use
 

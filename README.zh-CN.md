@@ -10,6 +10,8 @@
 
 FanControl 是主打 Apple Silicon Mac 的实验性开源项目。它可以读取风扇数据；只有在你明确授权管理员权限后，才会通过一个受限的系统组件写入风扇控制值。它不是 Apple 产品，当前构建为**临时签名（ad-hoc signed），尚未公证（notarized）**。
 
+[v0.1.0-preview Release](https://github.com/gmaxio/fancontrol/releases/tag/v0.1.0-preview) 提供可选的学习/测试安装包。首次打开可能会触发 Gatekeeper 提示；请先阅读[预览包下载说明](docs/DISTRIBUTION.md#using-the-preview-downloads)。
+
 在实际调速前，请阅读[安全说明](docs/SAFETY.md)。目前尤其需要 M1、M2、M4、M5 机型的兼容性反馈。
 
 ## 能做什么
@@ -51,6 +53,15 @@ zsh install.sh
 ```
 
 请不要用“一键移除隔离属性”等方式绕过 macOS 安全提示。希望核对安装内容时，建议自行从源码构建。未来签名与公证版本的流程见[签名与公证发布说明](docs/DISTRIBUTION.md)。
+
+## 预览安装包
+
+Release 中提供两个可选压缩包：
+
+- `FanControl.app.zip`：菜单栏 App 与只读 SMC 工具。
+- `fancontrol-dist.zip`：App、CLI、安装脚本和卸载脚本。
+
+它们仅用于学习和测试，使用临时签名且尚未公证；完整分发包只有在你明确确认管理员权限后才会安装特权组件。使用前请核对 Release 中的 SHA-256，并按照[预览包下载说明](docs/DISTRIBUTION.md#using-the-preview-downloads)逐个放行应用。
 
 ## 日常使用与卸载
 

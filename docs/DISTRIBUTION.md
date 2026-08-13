@@ -25,6 +25,42 @@ See Apple's [Developer ID certificates](https://developer.apple.com/help/account
 [custom `notarytool` workflow](https://developer.apple.com/documentation/security/customizing-the-notarization-workflow),
 and [Hardened Runtime documentation](https://developer.apple.com/documentation/xcode/configuring-the-hardened-runtime).
 
+## Using the preview downloads
+
+The `v0.1.0-preview` Release includes optional, **ad-hoc signed and
+notarization-free** archives for learning and testing. This is an explicit
+trade-off: users get a ready-to-inspect build now, while the project continues
+the longer Developer ID and notarization work.
+
+Before opening a downloaded archive:
+
+1. Download it only from the project's official
+   [GitHub Release](https://github.com/gmaxio/fancontrol/releases/tag/v0.1.0-preview).
+2. Download `SHA256SUMS.txt` from the same Release and verify the archive:
+
+   ```bash
+   shasum -a 256 FanControl.app.zip
+   ```
+
+   The result must match the corresponding line in `SHA256SUMS.txt`.
+3. Extract the ZIP in Finder. For `FanControl.app`, right-click the app and
+   choose **Open**, then confirm **Open** in the macOS dialog. This creates a
+   one-time approval for this specific app.
+4. If macOS reports that it cannot verify the developer, open **System
+   Settings → Privacy & Security**, scroll to **Security**, choose **Open
+   Anyway** for FanControl, and then launch it again. Only do this after
+   checking that the file came from the official Release and its checksum
+   matches.
+5. If those options do not appear or the checksum does not match, delete the
+   download and report the problem. Do not disable Gatekeeper globally, run
+   `spctl --master-disable`, or use blanket `xattr -dr` quarantine removal.
+
+`fancontrol-dist.zip` includes an installer that copies a root-owned setuid
+helper into `/Library/PrivilegedHelperTools`. Read [SAFETY.md](SAFETY.md) and
+[SECURITY.md](../SECURITY.md) first. Do not run it alongside another fan
+controller, and keep `fancontrol auto` available to return fans to macOS
+automatic control.
+
 ## One-time setup
 
 1. Join the Apple Developer Program as an individual or organization. Apple
