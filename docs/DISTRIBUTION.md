@@ -46,12 +46,13 @@ and [Hardened Runtime documentation](https://developer.apple.com/documentation/x
    ```bash
    xcrun notarytool store-credentials fancontrol-notary \
      --apple-id "you@example.com" \
-     --team-id "TEAMID1234" \
-     --password "app-specific-password"
+     --team-id "TEAMID1234"
    ```
 
-The public repository never needs the password. `notarize_release.sh` reads
-the keychain profile by name.
+`notarytool` will securely prompt for the app-specific password. Do not append
+the password as a command-line argument, because it can remain in shell
+history. The public repository never needs the password;
+`notarize_release.sh` reads the keychain profile by name.
 
 ## Build and notarize
 
@@ -97,4 +98,3 @@ notarization scan; the installation boundary remains documented in
 - A clean Mac can open the DMG without blanket quarantine removal.
 - The app can read fans before helper installation and restores automatic mode
   after a normal exit.
-
