@@ -4,6 +4,8 @@
 
 [English](README.md) · [安全说明](docs/SAFETY.md) · [兼容性](docs/COMPATIBILITY.md) · [隐私](docs/PRIVACY.md)
 
+[签名与公证发布说明](docs/DISTRIBUTION.md)
+
 ## 项目状态
 
 FanControl 是主打 Apple Silicon Mac 的实验性开源项目。它可以读取风扇数据；只有在你明确授权管理员权限后，才会通过一个受限的系统组件写入风扇控制值。它不是 Apple 产品，当前构建为**临时签名（ad-hoc signed），尚未公证（notarized）**。
@@ -48,7 +50,7 @@ cd fancontrol-dist
 zsh install.sh
 ```
 
-请不要用“一键移除隔离属性”等方式绕过 macOS 安全提示。希望核对安装内容时，建议自行从源码构建；否则请等待未来的签名和公证版本。
+请不要用“一键移除隔离属性”等方式绕过 macOS 安全提示。希望核对安装内容时，建议自行从源码构建。未来签名与公证版本的流程见[签名与公证发布说明](docs/DISTRIBUTION.md)。
 
 ## 日常使用与卸载
 

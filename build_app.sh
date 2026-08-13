@@ -10,6 +10,27 @@ CACHE="$SRC/.build-cache"
 DIST="$SRC/fancontrol-dist"
 ICON_SRC="$SRC/assets/fan-icon-cropped.png"
 ICON_ICNS="$SRC/assets/AppIcon.icns"
+SIGNING_IDENTITY="${SIGNING_IDENTITY:--}"
+
+if [[ "$SIGNING_IDENTITY" != "-" ]] &&
+   ! /usr/bin/security find-identity -v -p codesigning |
+   /usr/bin/grep -Fq "$SIGNING_IDENTITY"; then
+  echo "错误: 未找到签名身份: $SIGNING_IDENTITY" >&2
+  echo "请先安装 Developer ID Application 证书，或使用 SIGNING_IDENTITY=- 生成临时签名构建。" >&2
+  exit 1
+fi
+
+sign_target() {
+  local target="$1"
+  if [[ "$SIGNING_IDENTITY" == "-" ]]; then
+    /usr/bin/codesign --force --sign - "$target"
+  else
+    # Apple notarization requires a Developer ID signature, a secure
+    # timestamp, and the Hardened Runtime on every executable we distribute.
+    /usr/bin/codesign --force --options runtime --timestamp \
+      --sign "$SIGNING_IDENTITY" "$target"
+  fi
+}
 
 rm -rf "$BUILD" "$APP"
 mkdir -p "$BUILD" "$APP/Contents/MacOS" "$APP/Contents/Resources"
@@ -22,7 +43,7 @@ echo "==> [1/5] 编译受限的 SMC 工具 (通用二进制)"
 clang -O2 -Wall -Wextra -arch x86_64 -arch arm64 \
   "$SRC/smc.c" -framework IOKit -framework CoreFoundation \
   -o "$BUILD/smc"
-codesign --force --sign - "$BUILD/smc"
+sign_target "$BUILD/smc"
 cp "$BUILD/smc" "$APP/Contents/Resources/smc"
 cp "$BUILD/smc" "$SRC/smc"
 chmod 755 "$APP/Contents/Resources/smc"
@@ -101,7 +122,8 @@ cat > "$APP/Contents/Info.plist" <<'EOF'
 </plist>
 EOF
 
-codesign --force --deep --sign - "$APP"
+sign_target "$APP"
+/usr/bin/codesign --verify --deep --strict "$APP"
 
 # 两种下载都必须可用：
 # - FanControl.app.zip 可直接打开，并能从 App 内安装控制组件；

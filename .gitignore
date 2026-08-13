@@ -18,9 +18,11 @@ __pycache__/
 # Generated release artifacts: publish these through GitHub Releases, not Git.
 FanControl.app/
 FanControl.app.zip
+FanControl.dmg
 fancontrol-dist/
 fancontrol-dist.zip
 smc
+.notarization/
 
 # Local FanControl runtime state and diagnostics
 .fancontrol/

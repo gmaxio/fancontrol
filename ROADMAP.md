@@ -10,7 +10,8 @@ Items are ordered by user risk and maintainer leverage rather than by novelty.
 - Add unit coverage for curve interpolation, configuration migration, fan-key
   selection, and hardware-limit validation.
 - Replace the setuid helper with a modern, least-privilege macOS helper design.
-- Establish a signed and notarized release pipeline and document provenance.
+- Test the signed/notarized DMG workflow in [docs/DISTRIBUTION.md](docs/DISTRIBUTION.md)
+  and document release provenance.
 - Add a safe diagnostic export that removes usernames, paths, serial numbers,
   and unrelated logs by default.
 

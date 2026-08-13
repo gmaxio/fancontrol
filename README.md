@@ -4,6 +4,8 @@
 
 [中文版](README.zh-CN.md) · [Safety](docs/SAFETY.md) · [Compatibility](docs/COMPATIBILITY.md) · [Privacy](docs/PRIVACY.md)
 
+[Signed distribution guide](docs/DISTRIBUTION.md)
+
 ![FanControl settings window](settings_snapshot.png)
 
 ## Status
@@ -65,8 +67,9 @@ zsh install.sh
 ```
 
 Do not bypass macOS security checks with blanket quarantine-removal commands.
-Build from source if you want to inspect the exact helper being installed, or
-wait for a future signed and notarized release.
+Build from source if you want to inspect the exact helper being installed. The
+planned signed/notarized release workflow is documented in
+[docs/DISTRIBUTION.md](docs/DISTRIBUTION.md).
 
 ## Everyday use
 
